@@ -1,22 +1,23 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const fetch = require('node-fetch');
 
+const fetch = require('node-fetch');
 const app = express();
 
 // Bodyparser Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Static folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'));
 
 // Signup Route
 app.post('/signup', (req, res) => {
-  const { firstName, lastName, email } = req.body;
+  const {email } = req.body;
 
   // Make sure fields are filled
-  if (!firstName || !lastName || !email) {
+  if (!email) {
     res.redirect('/fail.html');
     return;
   }
@@ -27,20 +28,17 @@ app.post('/signup', (req, res) => {
       {
         email_address: email,
         status: 'subscribed',
-        merge_fields: {
-          FNAME: firstName,
-          LNAME: lastName
-        }
+        
       }
     ]
   };
 
   const postData = JSON.stringify(data);
 
-  fetch('https://usX.api.mailchimp.com/3.0/lists/<YOUR_AUDIENCE_ID>', {
+  fetch(`https://us21.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LIST_ID}`, {
     method: 'POST',
     headers: {
-      Authorization: 'auth <YOUR_API_KEY>'
+      Authorization: `auth ${process.env.MAILCHIMP_API}`,
     },
     body: postData
   })
@@ -50,6 +48,6 @@ app.post('/signup', (req, res) => {
     .catch(err => console.log(err))
 })
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, console.log(`Server started on ${PORT}`));

@@ -1,20 +1,33 @@
 {
-  "name": "mailchimp_newsletter",
+  "name": "kidgpt_landing_page",
   "version": "1.0.0",
-  "description": "Simple newsletter app using Mailchimp",
+  "description": "Landing page for kidgpt",
   "main": "app.js",
   "scripts": {
     "start": "node app",
     "dev": "nodemon app"
   },
-  "author": "Brad Traversy",
+  "author": "Shamil Aliyev",
   "license": "MIT",
   "dependencies": {
+    "autoprefixer": "^10.4.14",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "postcss": "^8.4.25"
+    
   },
   "devDependencies": {
-    "nodemon": "^2.0.3"
-  }
+    "nodemon": "^2.0.3",
+    "tailwindcss": "^3.3.2"
+  },
+  "repository": {
+    "type": "git", 
+    "url": "git+https://github.com/samil-web/kidgpt_landing_p"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/samil-web/kidgpt_landing_p/issues"
+  },
+  "homepage": "https://github.com/samil-web/kidgpt_landing_p#readme"
 }

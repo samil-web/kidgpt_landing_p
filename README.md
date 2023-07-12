@@ -1,6 +1,6 @@
-# MailChimp Newsletter Signup
+# KidGPT Landing Page
 
-> Newsletter signup using Node.js/Express and the Mailchimp API. Fill in your [audience ID] and your [API Key] in app.js
+> Landing page waitlist using Node.js/Express and the Mailchimp API
 
 ## Quick Start
 
@@ -17,8 +17,7 @@ npm run dev (Nodemon)
 
 ### Author
 
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
+Shamil Aliyev
 
 ### Version
 
